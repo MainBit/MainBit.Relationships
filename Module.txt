@@ -1,0 +1,11 @@
+﻿Name: MainBit.Relationships
+AntiForgery: enabled
+Author: neTp9c
+Website: http://mainbit.ru
+Version: 1
+OrchardVersion: 1.8
+Description: Description for the module
+Features:
+    MainBit.Relationships:
+        Description: Description for feature MainBit.Relationships.
+		Dependencies: Orchard.ContentPicker
