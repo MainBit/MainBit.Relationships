@@ -19,5 +19,16 @@ namespace MainBit.Relationships
 
             return 1;
         }
+
+        public int UpdateFrom1()
+        {
+            SchemaBuilder.CreateTable("RelationshipGroupRecord",
+                table => table
+                    .Column<int>("Id", column => column.PrimaryKey().Identity())
+                    .Column<string>("Title")
+                );
+
+            return 2;
+        }
     }
 }

@@ -13,15 +13,19 @@
     </div>
 </fieldset>
 <fieldset>
+    <div>
+        @Html.CheckBoxFor(m => m.HideEditor) <label for="@Html.FieldIdFor(m => m.HideEditor)" class="forcheckbox">@T("Hide field in edit content item")</label>
+        <span class="hint">@T("Check to hide field in edit content item.")</span>
+    </div>
+</fieldset>
+<fieldset>
     <label for="@Html.FieldIdFor(m => m.Hint)">@T("Help text")</label>
     @Html.TextAreaFor(m => m.Hint, new { @class = "textMedium", rows = "5" } )
     <span class="hint">@T("The help text is written under the field when authors are selecting content items.")</span>
     @Html.ValidationMessageFor(m => m.Hint)
 </fieldset>
 <fieldset>
-    <div>
-        <label for="@Html.FieldIdFor(m => m.RelationshipGroupRecord_Id)">@T("Relationship group")</label>
-        @Html.TextBoxFor(m => m.RelationshipGroupRecord_Id, new { @class = "text-small", type = "text", min = 0, max = 1000000, step = 1 })
-        <span class="hint">@T("Relationship group.")</span>
-    </div>
+    @Html.LabelFor(m => m.RelationshipGroupRecord_Id, T("Relationship group"))
+    @Display.RelationshipGroupPicker(Value: Model.RelationshipGroupRecord_Id)
+    <span class="hint">@T("Specify a relationship group")</span>
 </fieldset>

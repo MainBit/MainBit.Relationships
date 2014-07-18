@@ -14,12 +14,12 @@ namespace MainBit.Relationships.Drivers
 {
     public class RelationshipFieldDriver : ContentFieldDriver<RelationshipField>
     {
-        private readonly IRelationshipsService _relationshipsService;
+        private readonly IRelationshipService _relationshipsService;
 
         // EditorTemplates/Fields/Relationship.cshtml
         //private const string TemplateName = "Fields/Relationship";
 
-        public RelationshipFieldDriver(IRelationshipsService relationshipsService)
+        public RelationshipFieldDriver(IRelationshipService relationshipsService)
         {
             _relationshipsService = relationshipsService;
             T = NullLocalizer.Instance;
@@ -48,9 +48,13 @@ namespace MainBit.Relationships.Drivers
         protected override DriverResult Editor(ContentPart part, RelationshipField field, dynamic shapeHelper)
         {
             var settings = field.PartFieldDefinition.Settings.GetModel<RelationshipFieldSettings>();
+            if (settings.HideEditor) { return null; }
+
+
             var model = new RelationshipFieldViewModel
             {
                 Field = field,
+                Part = part,
                 ContentItems = _relationshipsService.Get(part.ContentItem.Id, settings.RelationshipGroupRecord_Id).ToList(),
             };
             model.SelectedIds = string.Concat(",", model.ContentItems.Select(r => r.Id));
@@ -62,11 +66,13 @@ namespace MainBit.Relationships.Drivers
 
         protected override DriverResult Editor(ContentPart part, RelationshipField field, IUpdateModel updater, dynamic shapeHelper)
         {
-            var model = new RelationshipFieldViewModel();
+            var settings = field.PartFieldDefinition.Settings.GetModel<RelationshipFieldSettings>();
+            if (settings.HideEditor) { return null; }
 
+            var model = new RelationshipFieldViewModel();
             updater.TryUpdateModel(model, GetPrefix(field, part), null, null);
 
-            var settings = field.PartFieldDefinition.Settings.GetModel<RelationshipFieldSettings>();
+            
 
             int[] ids;
             if (String.IsNullOrEmpty(model.SelectedIds))

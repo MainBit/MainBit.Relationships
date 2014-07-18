@@ -9,7 +9,13 @@ using Orchard.Data;
 
 namespace MainBit.Relationships.Services
 {
-    public class RelationshipsService : IRelationshipsService
+    public interface IRelationshipService : IDependency
+    {
+        IEnumerable<ContentItem> Get(int contentItemId, int relationshipGroupRecordId);
+        bool Update(int contentItemId, int[] relContentItemId, int relationshipGroupRecordId);
+    }
+
+    public class RelationshipsService : IRelationshipService
     {
         private readonly IRepository<RelationshipRecord> _relationshipRepository;
         private readonly IContentManager _contentManager;

@@ -9,11 +9,11 @@ using MainBit.Relationships.Fields;
 namespace MainBit.Relationships.Handlers
 {
     public class RelationshipFieldHandler : ContentHandler {
-        private readonly IRelationshipsService _relationshipsService;
+        private readonly IRelationshipService _relationshipsService;
         private readonly IContentDefinitionManager _contentDefinitionManager;
 
         public RelationshipFieldHandler(
-            IRelationshipsService relationshipsService, 
+            IRelationshipService relationshipsService, 
             IContentDefinitionManager contentDefinitionManager) {
 
             _relationshipsService = relationshipsService;
