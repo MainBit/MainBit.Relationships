@@ -74,8 +74,6 @@
     <Content Include="Module.txt" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\Web.config" />
-    <Content Include="Styles\Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@
     string name = field.DisplayName;
     var contentItems = field.ContentItems;
 }
-<p class="content-picker-field content-picker-field-@name.HtmlClassify()">
+<p class="content-picker-field content-picker-field-@field.Name.HtmlClassify()">
     <span class="name">@name:</span>
     @if(contentItems.Any()) {
         foreach(var contentItem in contentItems) {
