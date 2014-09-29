@@ -14,7 +14,7 @@ namespace MainBit.Relationships.Settings
         public override IEnumerable<TemplateViewModel> PartFieldEditor(ContentPartFieldDefinition definition) {
             if (definition.FieldDefinition.Name == "RelationshipField")
             {
-                var model = definition.Settings.GetModel<RelationshipFieldSettings>();
+                var model = definition.GetRelationshipFieldSettings();
                 yield return DefinitionTemplate(model);
             }
         }
@@ -33,6 +33,7 @@ namespace MainBit.Relationships.Settings
                 builder.WithSetting("RelationshipFieldSettings.Multiple", model.Multiple.ToString(CultureInfo.InvariantCulture));
                 builder.WithSetting("RelationshipFieldSettings.RelationshipGroupRecord_Id", model.RelationshipGroupRecord_Id.ToString(CultureInfo.InvariantCulture));
                 builder.WithSetting("RelationshipFieldSettings.HideEditor", model.HideEditor.ToString(CultureInfo.InvariantCulture));
+                builder.WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", model.DisplayedContentTypes);
             }
 
             yield return DefinitionTemplate(model);

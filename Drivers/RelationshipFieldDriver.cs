@@ -47,7 +47,7 @@ namespace MainBit.Relationships.Drivers
 
         protected override DriverResult Editor(ContentPart part, RelationshipField field, dynamic shapeHelper)
         {
-            var settings = field.PartFieldDefinition.Settings.GetModel<RelationshipFieldSettings>();
+            var settings = field.PartFieldDefinition.GetRelationshipFieldSettings();
             if (settings.HideEditor) { return null; }
 
 
@@ -66,7 +66,7 @@ namespace MainBit.Relationships.Drivers
 
         protected override DriverResult Editor(ContentPart part, RelationshipField field, IUpdateModel updater, dynamic shapeHelper)
         {
-            var settings = field.PartFieldDefinition.Settings.GetModel<RelationshipFieldSettings>();
+            var settings = field.PartFieldDefinition.GetRelationshipFieldSettings();
             if (settings.HideEditor) { return null; }
 
             var model = new RelationshipFieldViewModel();
