@@ -22,7 +22,7 @@ namespace MainBit.Relationships.Settings
         {
             var settings = definition.Settings.GetModel<RelationshipFieldSettings>();
             string displayedContentTypes;
-            if (definition.Settings.TryGetValue("ContentPickerFieldSettings.DisplayedContentTypes", out displayedContentTypes))
+            if (definition.Settings.TryGetValue("RelationshipFieldSettings.DisplayedContentTypes", out displayedContentTypes))
             {
                 settings.DisplayedContentTypes = displayedContentTypes;
             }

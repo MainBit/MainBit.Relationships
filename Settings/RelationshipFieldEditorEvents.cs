@@ -33,7 +33,7 @@ namespace MainBit.Relationships.Settings
                 builder.WithSetting("RelationshipFieldSettings.Multiple", model.Multiple.ToString(CultureInfo.InvariantCulture));
                 builder.WithSetting("RelationshipFieldSettings.RelationshipGroupRecord_Id", model.RelationshipGroupRecord_Id.ToString(CultureInfo.InvariantCulture));
                 builder.WithSetting("RelationshipFieldSettings.HideEditor", model.HideEditor.ToString(CultureInfo.InvariantCulture));
-                builder.WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", model.DisplayedContentTypes);
+                builder.WithSetting("RelationshipFieldSettings.DisplayedContentTypes", model.DisplayedContentTypes);
             }
 
             yield return DefinitionTemplate(model);

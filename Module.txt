@@ -1,11 +1,12 @@
 ﻿Name: MainBit.Relationships
 AntiForgery: enabled
-Author: neTp9c
-Website: http://mainbit.ru
+Author: MainBit Inc.
+Website: http://mainbit.com
 Version: 1
-OrchardVersion: 1.8
+OrchardVersion: 1.10
 Description: Description for the module
 Features:
     MainBit.Relationships:
-        Description: Description for feature MainBit.Relationships.
+        Description: Provide the reletionship content field that allow to establish the relationship beetween content items by content picker.
 		Dependencies: Orchard.ContentPicker
+		Category: Input Editor
